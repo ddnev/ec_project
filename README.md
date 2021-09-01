@@ -56,9 +56,11 @@ To accomplish this the program attempts to determine which line is most similar 
 
 The program does this by transforming each line of the poem and the user input into a vector space defined by the vocabulary of the poem using the TF-IDF approach.
 This approach consists of two parts: calculating the term frequency (TF) for each term in _each line_ and the inverse document frequency (IDF) of each term within the _whole document_ (here the poem).
-> TF = (# times term is present in the line) / (# of unique terms in the line)
+> TF(term) = (# times term is present in the line) / (# of unique terms in the line)
 > 
-> IDF = (# unique terms in the poem) / (# times the term is present in the poem)
+> IDF(term) = log [ (# unique terms in the poem + 1) / (# times the term is present in the poem + 1) ] 
+
+_(Note: The "+ 1" in the numerator and denominator of the IDF definition prevent division by zero errors that might occur if a user inputs a word that doesn't exist in the poem)_
 
 So, if a term is used frequently in a particular line it will have a large TF value. 
 If it doesn't occur in that line it the TF value will be 0.
