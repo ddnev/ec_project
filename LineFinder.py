@@ -54,6 +54,7 @@ if lines_and_similarites.shape[0] > 0:
     print('\nHere are the best matches based on your search terms: \n\t\t' + input + '\n')
     for index, row in lines_and_similarites[:num_return].iterrows():
         print('\t'+'['+str(row['line_num'])+'] '+row['line_txt'].rstrip('\n'))
+    print('\n')
 # Else, inform the user no matching lines could be found
 else:
     print('No lines appear to match your input. Care to try again?\n')
