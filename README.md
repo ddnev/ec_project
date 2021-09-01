@@ -6,7 +6,7 @@ This python script helps users find lines from the poem "Lepanto" by G.K. Cheste
 After executing the script, the user inputs what they recall from the poem in the command line and up to three of the best matching lines of the poem (along with the line number) are returned.
 
 ## Installation
-###_Requirements_
+### _Requirements_
 <li>Python3 - 3.7 Should be included in Debian Buster; to check:</li>
 
 > $ python3 --version
@@ -19,8 +19,8 @@ After executing the script, the user inputs what they recall from the poem in th
 
 >$ sudo apt install git-all
 
-###_To Run_
-
+### _To Run_
+ 
 After making sure requirements are met use the following commands: 
 
 1) Clone the git repo
