@@ -56,7 +56,7 @@ if lines_and_similarites.shape[0] > 0:
         print('\t'+'['+str(row['line_num'])+'] '+row['line_txt'].rstrip('\n'))
 # Else, inform the user no matching lines could be found
 else:
-    print('No lines appear to match your input. Care to try again?')
+    print('No lines appear to match your input. Care to try again?\n')
 
 
 

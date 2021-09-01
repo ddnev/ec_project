@@ -7,30 +7,47 @@ After executing the script, the user inputs what they recall from the poem in th
 
 ## Installation
 ###_Requirements_
-<li>Python3</li>
+<li>Python3 - 3.7 Should be included in Debian Buster; to check:</li>
+
+> $ python3 --version
+
+<li> Python virtual environments (for convenience)
+
+> $ sudo apt-get install python3-venv 
+
 <li>Git</li>
+
+>$ sudo apt install git-all
 
 ###_To Run_
 
 After making sure requirements are met use the following commands: 
 
-1) Create a virtual environment 
->python3 -m venv _YourDirectory_
->
->source _YourDirectory_/bin/activate
+1) Clone the git repo
+>$ git clone https://github.com/ddnev/ec_project.git _ProjectDirectory_
 
-3) Install necessary packages to the virtual environment
->python3 -m pip install numpy
->
->python3 -m pip install scikit-learn
->
->python3 -m pip install pandas
+2) Create a virtual environment 
+>$ python3 -m venv _VenvDirectory_
 
-4) Clone the git repo
->git clone https://github.com/ddnev/ec_project.git _YourDirectory_
+3) Activate the newly created virtual environment
+>$ source _VenvDirectory_/bin/activate
+
+4) With the virtual environment activated, install necessary packages
+>$ python3 -m pip install numpy
+>
+>$ python3 -m pip install scikit-learn
+>
+>$ python3 -m pip install pandas
+
 ## Operation
+First, make sure you've activated the correct virtual environment:
+>$ source _VenvDirectory_/bin/activate
+
+Next, navigate to the project folder. 
+
 To execute the script use the following command:
->python3 LineFinder.py
+>$ python3 LineFinder.py
+
 
 ## Solution Design
 The objective of this program is to help a user find a line from the poem that they don't remember in full, but may recall some part of. 
@@ -53,6 +70,7 @@ Now that the poem lines and user input are in the same space the similarity betw
 The output of this computation essentially tells us how aligned the poem-line vector and user-input vectors are, which we use as a proxy for similarity.
 This computation conveniently returns a scalar value for each line of the poem, with the better matching lines having a higher similarity value.
 The lines can be ordered by similarity value and any number returned.
+Because the user may confuse content from multiple lines, up to the top three results with non-zero similarity are returned. 
 
 So what do we get for all this effort? The TF-IDF approach implicitly decreases the weight of terms which appear frequently in the poem.
 This is convenient because common words like "a", "the", etc. will not be very helpful in discriminating between lines and should not be given the same weight as more uncommon terms when looking for a match.
