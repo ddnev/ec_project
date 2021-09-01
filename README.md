@@ -63,7 +63,7 @@ This approach consists of two parts: calculating the term frequency (TF) for eac
 _(Note: The "+ 1" in the numerator and denominator of the IDF definition prevent division by zero errors that might occur if a user inputs a word that doesn't exist in the poem)_
 
 So, if a term is used frequently in a particular line it will have a large TF value. 
-If it doesn't occur in that line it the TF value will be 0.
+If it doesn't occur in that line then the TF value will be 0.
 Likewise, if a term is used many times throughout the poem it will have a small IDF value (remember it's inverse frequency). If it's used rarely then it will have a large IDF value.
 Thus, each line of the poem can be represented as a vector where each element in that vector corresponds to one of the unique terms in the poem and the element value is the product of the TF and IDF values for that term.
 The same process can be used to transform user input into the same vector space as the poem lines.
@@ -82,11 +82,11 @@ Encoding the poem and user input into a vector space also gives us other advanta
 One practical consideration is the how to define "term", which may be a single word or sequence of words. 
 Intuitively, there is additional information in the ordering of words within a line beyond just the words themselves.
 To take advantage of this information we can treat each unique sequence of _n_ words as a term.
-A high value for _n_ would lead to higher accuracy, but could significantly expand the vocabulary space and decrease efficiency. 
-To balance these concerns, this programs uses terms of one or two words in length.
+A high value for _n_ should lead to higher accuracy, but could significantly expand the vocabulary space and decrease efficiency. 
+To balance these concerns, this programs uses terms one or two words in length.
 
 There are several limitations to this design that might be addressed if the higher accuracy is required or constraints on time/resources are eased:
-<li>Spelling/Tense: The program does not do any stemming or lematization, so if a user inputs a verb from the poem but doesn't use the same tense as the one in the poem the transformation will ignore this word completely.</li>
+<li>Spelling/Tense: The program does not do any stemming or lemmatization, so if a user inputs a verb from the poem but doesn't use the same tense as the one in the poem the transformation will ignore this word completely.</li>
 <li>Synonyms: A user might input a synonym for a word in the poem, rather than the word itself. A more sophisticated algorithm is required to address this case.</li>
 
 
